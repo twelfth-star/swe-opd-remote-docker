@@ -170,8 +170,18 @@ def render_mini_config(args: argparse.Namespace) -> int:
     if args.extra_model_kwargs_json:
         model_kwargs.update(json.loads(args.extra_model_kwargs_json))
 
+    env_cfg = base_config.setdefault("environment", {})
     if args.environment_class:
-        base_config.setdefault("environment", {})["environment_class"] = args.environment_class
+        env_cfg["environment_class"] = args.environment_class
+
+    # mini-swe-agent-plus batch entrypoint `swebench_pool_way.py` directly
+    # instantiates DockerEnvironment(**config["environment"]), whose config
+    # dataclass does not accept `environment_class`. For our current bootstrap
+    # flow we target Docker on the rollout machine, and both single-instance
+    # and batch runners work fine without this field because Docker is the
+    # effective default.
+    if env_cfg.get("environment_class") == "docker":
+        env_cfg.pop("environment_class", None)
 
     output_path = Path(args.output_path)
     write_yaml(output_path, base_config)

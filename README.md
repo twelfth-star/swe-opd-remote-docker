@@ -135,13 +135,13 @@ ssh -i ~/.ssh/taurus_key YOUR_USERNAME@taurus.cs.ucsb.edu "echo connected"
 
 **Server A:**
 ```bash
-git clone <repo-url> swe-opd-remote-docker
+git clone git@github.com:twelfth-star/swe-opd-remote-docker.git
 cd swe-opd-remote-docker
 ```
 
 **Server B (taurus):**
 ```bash
-git clone <repo-url> swe-opd-remote-docker
+git clone git@github.com:twelfth-star/swe-opd-remote-docker.git
 cd swe-opd-remote-docker
 ```
 

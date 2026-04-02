@@ -1,6 +1,6 @@
 # swe-opd-remote-docker
 
-Distributed SWE-bench rollout infrastructure that separates **model serving** (Server A) from **agent execution** (Server B). Server A runs SGLang for GPU-based inference; Server B runs [mini-swe-agent-plus](https://github.com/your-org/mini-swe-agent-plus) in Docker containers to execute SWE-bench tasks against the remote model.
+Distributed SWE-bench rollout infrastructure that separates **model serving** (Server A) from **agent execution** (Server B). Server A runs SGLang for GPU-based inference; Server B runs [mini-swe-agent-plus](https://github.com/Kwai-Klear/mini-swe-agent-plus) in Docker containers to execute SWE-bench tasks against the remote model.
 
 Communication between the two servers is handled entirely through SSH tunnels — no special network configuration required.
 

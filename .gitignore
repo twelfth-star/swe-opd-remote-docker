@@ -205,6 +205,12 @@ cython_debug/
 generated/
 outputs/
 
+# Internal planning docs (not for distribution)
+plan/
+
+# User-specific local config (contains credentials, paths)
+config/bootstrap/*.local.env
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
